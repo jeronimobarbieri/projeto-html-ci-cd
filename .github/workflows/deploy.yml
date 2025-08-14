@@ -1,21 +1,37 @@
-name: Deploy to Vercel
+name: CI/CD Blog Psicanálise
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - name: 📥 Baixar código
+        uses: actions/checkout@v4
 
-    - name: Install Vercel CLI
-      run: npm i -g vercel
+      - name: 🟢 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Deploy to Vercel
-      run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod
-      env:
-        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: 🧪 Rodar testes
+        run: npm test
+
+      - name: 📂 Copiar arquivos HTML para pasta de build
+        run: |
+          mkdir public
+          cp src/index.html public/index.html
+
+      - name: 🚀 Deploy no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
