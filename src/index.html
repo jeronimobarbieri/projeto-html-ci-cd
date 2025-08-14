@@ -1,14 +1,74 @@
 <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <title>Psicanálise Clínica</title>
-        </head>
-        <body>
-            <h1>Blog Psicanálise Clínica!</h1>
-            <img src="https://cdn.eadplataforma.app/client/dcpi1/upload/crop/product/photo/890bb2a481fb3a9a1e5acad2ea61e44f_introducao-a-freudjpg.jpg-product-photo-detail-mobile.jpg" 
-                 alt="Logo React" width="200">
-        </body>
-</html>
-    
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Psicanálise Clínica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        main {
+            text-align: center;
+        }
+        #contador {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            margin-top: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog de Psicanálise Clínica</h1>
+        <img src="https://cdn.eadplataforma.app/client/dcpi1/upload/crop/product/photo/890bb2a481fb3a9a1e5acad2ea61e44f_introducao-a-freudjpg.jpg-product-photo-detail-mobile.jpg" 
+             alt="Sigmund Freud">
+    </header>
 
+    <main>
+        <p>Bem-vindo(a) ao nosso espaço de reflexão e estudo sobre a mente humana, seus conflitos e descobertas.</p>
+        <p>Este blog aborda temas da psicanálise clínica, trazendo conteúdos sobre Freud, Lacan, Jung e outros grandes nomes.</p>
+        
+        <p>Visitantes:</p>
+        <div id="contador">0</div>
+    </main>
+
+    <script>
+        // Recupera o contador do localStorage
+        let contador = localStorage.getItem("contador_visitas");
+        if (!contador) contador = 0;
+
+        // Incrementa
+        contador++;
+        localStorage.setItem("contador_visitas", contador);
+
+        // Exibe no HTML
+        document.getElementById("contador").textContent = contador;
+    </script>
+</body>
+</html>
