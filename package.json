@@ -1,0 +1,26 @@
+{
+  "name": "projeto-html-ci-cd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeronimobarbieri/projeto-html-ci-cd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeronimobarbieri/projeto-html-ci-cd/issues"
+  },
+  "homepage": "https://github.com/jeronimobarbieri/projeto-html-ci-cd#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
